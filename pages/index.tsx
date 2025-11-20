@@ -13,7 +13,7 @@ export default function Index() {
     <>
       <ParallaxProvider>
         <Head>
-          <title>Luke Auderer</title>
+          <title>MIS 5460</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="favicon.png"/>
           <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"/>

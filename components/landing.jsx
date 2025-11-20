@@ -22,7 +22,7 @@ export default function Landing (props) {
                         delay: 0.25,
                         ease: [0, 0.71, 0.2, 1.01]
                         }}
-                        className="text-l sm:text-xl">Hi! My <span className="font-bold">name</span> is</motion.h2>
+                        className="text-l sm:text-xl">Hi! This is our final project report for MIS 5460: </motion.h2>
                     <motion.h1 
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -31,7 +31,7 @@ export default function Landing (props) {
                         delay: 0.5,
                         ease: [0, 0.71, 0.2, 1.01]
                         }}
-                        className="typewriter reveal text-2xl font-bold sm:text-5xl">Luke Auderer</motion.h1>
+                        className="typewriter reveal text-2xl font-bold sm:text-5xl">Stock Market Forcasting</motion.h1>
                     {/* <motion.nav 
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}

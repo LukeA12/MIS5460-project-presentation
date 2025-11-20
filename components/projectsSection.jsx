@@ -175,215 +175,195 @@ const ProjectsSection = () => {
   // Define all projects data
   const projectsData = [
     {
-      title: "SpaceX",
+      title: "Data Sources",
       //icon: <img src="spacex.svg" className="w-24 h-22 mr-0" />,
       description: [
-        "Software Engineering Intern – Starlink Product Engineering",
-        "Contributed to the core systems enabling seamless communication between Starlink’s constellation of 8,000+ low Earth orbit satellites and millions of user terminals worldwide.",
-        "Designed and deployed fleet-wide telemetry to diagnose performance issues and improve network reliability at scale."
+        "Stock Price Data",
+        "- Daily trading data for the 100 stocks in the NASDAQ-100 index",
+        "- Includes prices, volumes, dates",
+        "FOMC Sentiment Data",
+        "- All FOMC post-meeting statements from 2010–2020",
+        "- Each sentence labeled with topic, polarity probabilities, and sentiment score",
+        "- Aggregated into meeting-level sentiment signals and merged with daily market data",
+        "Additional Dataset",
+        "- Preliminary models tested on a smaller Dow Jones dataset from Kaggle",
       ],
       mediaItems: [
-        { type: 'image', src: 'Starlink.png' }
+        { type: 'image', src: 'nasdaq.png' },
+        { type: 'image', src: 'FOMC.png' }
       ],
       //articleLink: "https://engineering.uiowa.edu/news-all/2024/11/iowa-engineers-win-39500-iowa-innovation-challenge",
       //sourceLink: "https://github.com/Nick-Hageman/SmartDart",
       badges: [
-        { text: "Python", accent: false },
-        { text: "C++", accent: false },
-        { text: "Linux", accent: false },
-        { text: "AWS", accent: false },
-        { text: "Bazel", accent: false },
-        { text: "Docker", accent: false },
-        { text: "Ansible", accent: false },
-        { text: "Grafana", accent: false },
-        { text: "Networking (TCP/IP)", accent: false },
+        // { text: "Python", accent: false },
+        // { text: "C++", accent: false },
+        // { text: "Linux", accent: false },
+        // { text: "AWS", accent: false },
+        // { text: "Bazel", accent: false },
+        // { text: "Docker", accent: false },
+        // { text: "Ansible", accent: false },
+        // { text: "Grafana", accent: false },
+        // { text: "Networking (TCP/IP)", accent: false },
       ]
     },
     {
-      title: "John Deere",
+      title: "Data Preparation",
       //icon: <img src="SlopeStats/slopeStatsAppIcon.png" alt="SlopeStats icon" className="w-6 h-6 mr-0" />,
       description: [
-        "Machine Learning and Robotics Engineer (full-year intern) - John Deere See and Spray",
-        "Supported two machine learning and robotics projects: See and Spray and FurrowVision.",
-        "See and Spray uses computer vision and machine learning to detect and selectively spray weeds in real time, reducing herbicide usage."
+        "Cleaned and chronologically sorted all stock price series",
+        "Forward-filled FOMC sentiment values between meeting dates",
+        "Engineered features such as:",
+        "- Momentum (1-, 3-, 6-, 12-month returns)",
+        "- Volume anomalies",
+        "- Moving averages",
+        "- Market-relative performance",
       ],
       mediaItems: [
-        { type: 'image', src: 'JohnDeereSeeAndSpray.png' },
-      ],
-      sourceLink: "https://www.youtube.com/watch?v=bEbjcqIuvi0",
-      badges: [
-        { text: "Python" },
-        { text: "PyTorch" },
-        { text: "C++" },
-        { text: "CUDA" },
-        { text: "OpenCV" },
-        { text: "Linux" },
-        { text: "CMake" },
-        { text: "Docker" },
-        { text: "Jenkins" }
-      ]
-    },
-    {
-      title: "John Deere",
-      //icon: <img src="SlopeStats/slopeStatsAppIcon.png" alt="SlopeStats icon" className="w-6 h-6 mr-0" />,
-      description: [
-        "Machine Learning and Robotics Engineer (full-year intern) - John Deere FurrowVision",
-        "FurrowVision collects images and measures depth, optimizing seed placement to avoid obstructions."
-      ],
-      mediaItems: [
-        { type: 'image', src: 'JohnDeereFurrowVision.png' },
+        { type: 'image', src: 'momentum.png' },
       ],
       //sourceLink: "https://www.youtube.com/watch?v=bEbjcqIuvi0",
       badges: [
-        { text: "Python" },
-        { text: "PyTorch" },
-        { text: "C++" },
-        { text: "CUDA" },
-        { text: "OpenCV" },
-        { text: "Linux" },
-        { text: "CMake" },
-        { text: "Docker" },
-        { text: "Jenkins" }
+        // { text: "Python" },
+        // { text: "PyTorch" },
+        // { text: "C++" },
+        // { text: "CUDA" },
+        // { text: "OpenCV" },
+        // { text: "Linux" },
+        // { text: "CMake" },
+        // { text: "Docker" },
+        // { text: "Jenkins" }
       ]
     },
     {
-      title: "John Deere",
+      title: "Sentiment Analysis",
       //icon: <img src="SlopeStats/slopeStatsAppIcon.png" alt="SlopeStats icon" className="w-6 h-6 mr-0" />,
       description: [
-        "Embedded Software Engineer (full-year intern) - John Deere Sprayers",
-        "Developed embedded software for John Deere sprayers to enable real-time communication between vehicle subsystems over the CAN bus.",
-        "Designed and implemented new user interface layouts in a Qt-based GUI for the in-cab display used in John Deere products.",
+        "We used FinBERT, a financial-domain NLP model, to score the tone of FOMC statements",
+        "What We Extracted:",
+        "- Probability of positive, neutral, and negative sentiment",
+        "- Continuous sentiment score: score = P(pos) - P(neg)",
+        "- Topic labels using BERTopic (policy, employment, securities, inflation expectations, etc.)",
+        "Key Insight: FOMC sentiment followed major economic events:",
+        "- 2010–2014: Strongly negative (post-financial crisis, heavy quantitative easing)",
+        "- 2017–2019: Positive (tightening policy, strong economic conditions)",
+        "- 2020: Mixed due to COVID-19 volatility",
       ],
       mediaItems: [
-        { type: 'image', src: 'JohnDeereEmbedded.png' },
+        { type: 'image', src: 'sentiment.jpg' },
+        { type: 'image', src: 'finbert.jpg' },
+        { type: 'image', src: 'labels.png' },
       ],
       //sourceLink: "https://www.youtube.com/watch?v=bEbjcqIuvi0",
       badges: [
-        { text: "C" },
-        { text: "C++" },
-        { text: "MATLAB" },
-        { text: "Qt" },
-        { text: "CMake" },
-        { text: "Embedded Systems" },
-        { text: "CAN" }
+        // { text: "Python" },
+        // { text: "PyTorch" },
+        // { text: "C++" },
+        // { text: "CUDA" },
+        // { text: "OpenCV" },
+        // { text: "Linux" },
+        // { text: "CMake" },
+        // { text: "Docker" },
+        // { text: "Jenkins" }
       ]
     },
     {
-      title: "Iowa State Industrial and Systems Engineering Department",
+      title: "ARIMA Model",
       //icon: <img src="SlopeStats/slopeStatsAppIcon.png" alt="SlopeStats icon" className="w-6 h-6 mr-0" />,
       description: [
-        "Research Assistant - Project Lead",
-        "Researching under Dr. Frank Peters and leading a project to develop a low cost structured-light 3D scanner.",
-        "Built a prototype scanner with a scan accuracy within 4% of high-end models costing over $20,000, using only $2,000 of components.",
+        "Used to model price-only time series",
+        "Works well for stationary trends but struggles with rapid changes",
+        "Not suitable for including sentiment features",
+        "Produces a very good, albiet somwhat misleading graph when using look ahead predictions",
       ],
       mediaItems: [
-        { type: 'image', src: 'ScannerFirstIteration.png' },
-        { type: 'image', src: 'ScannerSecondIteration.png' },
-        { type: 'image', src: 'ScanningCapability.png' },
+        { type: 'image', src: 'arima1.png' },
+        { type: 'image', src: 'arima2.png' },
       ],
       //sourceLink: "https://www.youtube.com/watch?v=bEbjcqIuvi0",
       badges: [
-        { text: "C++" },
-        { text: "OpenCV" },
-        { text: "CMake" },
-        { text: "Onshape" },
-        { text: "3D Printing" },
-        { text: "ESP32" },
+        // { text: "C" },
+        // { text: "C++" },
+        // { text: "MATLAB" },
+        // { text: "Qt" },
+        // { text: "CMake" },
+        // { text: "Embedded Systems" },
+        // { text: "CAN" }
       ]
     },
     {
-      title: "FIRST Robotics",
+      title: "Facebook Prophet Model",
       //icon: <img src="SlopeStats/slopeStatsAppIcon.png" alt="SlopeStats icon" className="w-6 h-6 mr-0" />,
       description: [
-        "Programming team, Mechanical Design team, Current Coach",
-        "Built a swerve drivetrain for the team robot to improve handling, then integrated an onboard camera system for autonomous navigation.",
-        "Returned to my high school team as a volunteer coach to teach engineering concepts to high school students.",
+        "Designed for time-series with trend + seasonality",
+        "Allowed us to add daily sentiment as an external regressor",
+        "Provided interpretable components: long-term trend, seasonality, sentiment impact",
+        "Overall great results, most of the actual data falls within the 80% confidence interval",
+        "A disadvantage is that each stock must be modeled independently, preventing the model from learning shared patterns across assets",
+        "Another disadvantage is that running 100 separate models (one per stock) significantly increases compute time",
       ],
       mediaItems: [
-        { type: 'image', src: 'robot3.jpg' },
-        { type: 'image', src: 'robot2.jpg' },
-        { type: 'image', src: 'robot1.png' },
-        { type: 'image', src: 'Robotics1.png' },
-        { type: 'image', src: 'Robotics2.png' },
-        { type: 'image', src: 'Robotics3.png' },
-      ],
-      sourceLink: "https://team4646.org/",
-      badges: [
-        { text: "C++" },
-        { text: "Java" },
-        { text: "OpenCV" },
-        { text: "Creo" },
-        { text: "Onshape" },
-        { text: "3D Printing" },
-        { text: "ESP32" },
-      ]
-    },
-    {
-      title: "MIPS Processor Designs in VHDL",
-      //icon: <img src="SlopeStats/slopeStatsAppIcon.png" alt="SlopeStats icon" className="w-6 h-6 mr-0" />,
-      description: [
-        "Designed and implemented a single-cycle processor, a software-scheduled pipelined processor, and a hardware-scheduled pipelined processor in VHDL.",
-        "Tested all processors on an FPGA board, ensuring correct functionality across the full MIPS instruction set.",
-        "Validated performance using custom assembly programs including bubble sort, merge sort, binary search, and a Fibonacci sequence generator."
-      ],
-      mediaItems: [
-        { type: 'video', src: 'MIPS_Processor.mp4' },
+        { type: 'image', src: 'prophet1.png' },
+        { type: 'image', src: 'prophet2.png' },
+        { type: 'image', src: 'prophet3.png' },
       ],
       //sourceLink: "https://www.youtube.com/watch?v=bEbjcqIuvi0",
       badges: [
-        { text: "VHDL" },
-        { text: "Assembly" },
-        { text: "ModelSim-Intel FPGA Software Suite" },
-        { text: "Python" },
-        { text: "Linux" },
+        // { text: "C++" },
+        // { text: "OpenCV" },
+        // { text: "CMake" },
+        // { text: "Onshape" },
+        // { text: "3D Printing" },
+        // { text: "ESP32" },
       ]
     },
     {
-      title: "TradeLens: Stock Investing Platform",
-      description: [
-        "Built a full-stack stock analytics platform using a React + TypeScript frontend, Flask API layer, and a Django/PostgreSQL backend.",
-        "Integrated Alpha Vantage to pull real-time and historical stock data, storing and organizing it in a scalable relational database.",
-        "Used Facebook Prophet to generate short and long term stock price forecasts, enabling users to compare predicted vs. actual returns.",
-        "Added a portfolio management feature allowing users to create portfolios, track their holdings, and monitor performance over time.",
-      ],
-      mediaItems: [
-        { type: 'video', src: 'tradelens.mp4' },
-      ],
-      badges: [
-        { text: "React" },
-        { text: "TypeScript" },
-        { text: "Flask" },
-        { text: "Django" },
-        { text: "PostgreSQL" },
-        { text: "Alpha Vantage API" },
-        { text: "Facebook Prophet" },
-        { text: "Machine Learning" }
-      ]
-    },
-    {
-      title: "ScholarSave: Student Financial App",
+      title: "XGBoost Model",
       //icon: <img src="SlopeStats/slopeStatsAppIcon.png" alt="SlopeStats icon" className="w-6 h-6 mr-0" />,
       description: [
-        "Created an Android app to help students find scholarships, manage their money, and track their expenses.",
-        "The app incorporates personalized behavioral nudges to encourage smarter spending and saving habits.",
-        "Integrated real-time market data with user-friendly, gamified features to keep users engaged.",
-        "Presented ScholarSave to multiple high school classes across the Des Moines metro area as part of their financial literacy curriculum."
+        "Handles nonlinear relationships and engineered features very well",
+        "Trained using walk-forward validation:",
+        "- Model retrains every month on the previous 5 years",
+        "- Predicts the next month’s returns",
+        "Generates thousands of monthly predictions across the entire stock universe",
+        "Trained on pooled data across all 100 stocks (Nasdaq 100), allowing the model to learn generalizable market patterns and cross-asset relationships",
+        "Training one unified model is far more efficient than fitting 100 separate univariate models",
+        "Ran the model with and without sentiment and saw improvement with sentiment"
       ],
       mediaItems: [
-        { type: 'image', src: 'ScholarSave.png' },
-        { type: 'image', src: 'ScholarSaveStocks.png' },
-        { type: 'image', src: 'ScholarSaveScholarships.png' },
+        { type: 'image', src: 'boost1.png' },
+        { type: 'image', src: 'boost2.png' },
+        { type: 'image', src: 'boost3.png' },
+        { type: 'image', src: 'boost4.png' },
+      ],
+      //sourceLink: "https://team4646.org/",
+      badges: [
+        // { text: "C++" },
+        // { text: "Java" },
+        // { text: "OpenCV" },
+        // { text: "Creo" },
+        // { text: "Onshape" },
+        // { text: "3D Printing" },
+        // { text: "ESP32" },
+      ]
+    },
+    {
+      title: "Conclusion",
+      //icon: <img src="SlopeStats/slopeStatsAppIcon.png" alt="SlopeStats icon" className="w-6 h-6 mr-0" />,
+      description: [
+        "Combining price trends with news sentiment significantly enhances the ability to forecast short-term stock performance. While ARIMA and Prophet provide useful baselines, XGBoost proved most capable of capturing complex relationships across features. Our results show that sentiment (especially from influential sources like the Federal Reserve) adds valuable predictive power. This integrated approach can support better portfolio ranking, risk assessment, and investment decision-making",
+      ],
+      mediaItems: [
+        { type: 'image', src: 'thanks.png' },
       ],
       //sourceLink: "https://www.youtube.com/watch?v=bEbjcqIuvi0",
       badges: [
-        { text: "Android SDK" },
-        { text: "Kotlin" },
-        { text: "Gradle" },
-        { text: "REST APIs" },
-        { text: "AWS" },
-        { text: "SQL" },
+        // { text: "VHDL" },
+        // { text: "Assembly" },
+        // { text: "ModelSim-Intel FPGA Software Suite" },
+        // { text: "Python" },
+        // { text: "Linux" },
       ]
-    }
+    },
   ];
 
   // Split projects into rows of 4
@@ -393,7 +373,7 @@ const ProjectsSection = () => {
     <div id="projects" className="bg-hue-gray text-sky-white font-mono h-auto md:px-24 md:py-12 mb-20">
       <div className="flex flex-col items-center justify-center">
         <h1 data-aos="zoom-out" className="mt-10 mb-8 text-4xl font-medium">
-          Work and Project Experience
+          Project Details
         </h1>
 
         {projectsData.map((project, index) => (
