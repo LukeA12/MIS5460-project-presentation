@@ -273,7 +273,7 @@ const ProjectsSection = () => {
         "Used to model price-only time series",
         "Works well for stationary trends but struggles with rapid changes",
         "Not suitable for including sentiment features",
-        "Produces a very good, albiet somwhat misleading graph when using look ahead predictions",
+        "Produces a very good, albiet somewhat misleading graph when using look ahead predictions",
       ],
       mediaItems: [
         { type: 'image', src: 'arima1.png' },
