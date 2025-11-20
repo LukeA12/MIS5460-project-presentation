@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+--scroll-behavior: smooth!important;
+scroll-behavior: smooth!important;
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: .20em solid white;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .05em;
+  animation:
+    typing 1.75s 0.5s,
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0% }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
